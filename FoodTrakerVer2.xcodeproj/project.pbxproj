@@ -7,21 +7,70 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DBE9E48619D1793B211BDEC /* Pods_FoodTrakerVer2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C9D434F1470EB3906041B77 /* Pods_FoodTrakerVer2.framework */; };
 		8418AA0920EDB8DC00E5C60D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418AA0820EDB8DC00E5C60D /* AppDelegate.swift */; };
-		8418AA0B20EDB8DC00E5C60D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418AA0A20EDB8DC00E5C60D /* ViewController.swift */; };
+		8418AA0B20EDB8DC00E5C60D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418AA0A20EDB8DC00E5C60D /* ProfileViewController.swift */; };
 		8418AA0E20EDB8DC00E5C60D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8418AA0C20EDB8DC00E5C60D /* Main.storyboard */; };
-		8418AA1020EDB8DD00E5C60D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8418AA0F20EDB8DD00E5C60D /* Assets.xcassets */; };
 		8418AA1320EDB8DD00E5C60D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8418AA1120EDB8DD00E5C60D /* LaunchScreen.storyboard */; };
+		8418AA1D20EDBB3100E5C60D /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418AA1B20EDBB3100E5C60D /* MealTableViewCell.swift */; };
+		8418AA1E20EDBB3100E5C60D /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418AA1C20EDBB3100E5C60D /* RatingControl.swift */; };
+		8418AA2120EDBBEC00E5C60D /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418AA2020EDBBEC00E5C60D /* Meal.swift */; };
+		8418AA2320EDBC5D00E5C60D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418AA2220EDBC5D00E5C60D /* Location.swift */; };
+		8418AA2520EDBC9000E5C60D /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418AA2420EDBC9000E5C60D /* Time.swift */; };
+		8418AA2720EDBE1000E5C60D /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418AA2620EDBE1000E5C60D /* Coordinate.swift */; };
+		8418AA2920EDBE9C00E5C60D /* Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418AA2820EDBE9C00E5C60D /* Kind.swift */; };
+		8418AA2D20EDBF8000E5C60D /* KindTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418AA2C20EDBF8000E5C60D /* KindTableViewController.swift */; };
+		8418AA2F20EDC1DA00E5C60D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8418AA2E20EDC1DA00E5C60D /* GoogleService-Info.plist */; };
+		84806A6E20EFBFDC00A3A32F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84806A6D20EFBFDC00A3A32F /* TabBarViewController.swift */; };
+		84806A7120EFD8CE00A3A32F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84806A7020EFD8CE00A3A32F /* MapViewController.swift */; };
+		84806A7320EFDA2900A3A32F /* MapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84806A7220EFDA2900A3A32F /* MapViewExtension.swift */; };
+		849743B920F26B56006C0011 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849743B820F26B56006C0011 /* UIImageViewExtension.swift */; };
+		84B55EDC20F0803100A94031 /* AutocompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B55EDB20F0803100A94031 /* AutocompleteController.swift */; };
+		84B55EDE20F09FCD00A94031 /* LocationGG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B55EDD20F09FCD00A94031 /* LocationGG.swift */; };
+		84B55EE020F0A01400A94031 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B55EDF20F0A01400A94031 /* UITextFieldExtension.swift */; };
+		84FF861C20EEFDB2001F29D2 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF861B20EEFDB2001F29D2 /* DataService.swift */; };
+		84FF861E20EF03D7001F29D2 /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF861D20EF03D7001F29D2 /* MealTableViewController.swift */; };
+		84FF862020EF10D6001F29D2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF861F20EF10D6001F29D2 /* DetailViewController.swift */; };
+		84FF862220EF3D1E001F29D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84FF862120EF3D1E001F29D2 /* Assets.xcassets */; };
+		84FF862520EF40BF001F29D2 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF862420EF40BF001F29D2 /* ViewExtension.swift */; };
+		84FF862720EF5311001F29D2 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF862620EF5311001F29D2 /* StartViewController.swift */; };
+		84FF862920EF533C001F29D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF862820EF533C001F29D2 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8418AA0520EDB8DC00E5C60D /* FoodTrakerVer2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTrakerVer2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8418AA0820EDB8DC00E5C60D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8418AA0A20EDB8DC00E5C60D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8418AA0A20EDB8DC00E5C60D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8418AA0D20EDB8DC00E5C60D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8418AA0F20EDB8DD00E5C60D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8418AA1220EDB8DD00E5C60D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8418AA1420EDB8DD00E5C60D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8418AA1B20EDBB3100E5C60D /* MealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		8418AA1C20EDBB3100E5C60D /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		8418AA2020EDBBEC00E5C60D /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		8418AA2220EDBC5D00E5C60D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		8418AA2420EDBC9000E5C60D /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		8418AA2620EDBE1000E5C60D /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		8418AA2820EDBE9C00E5C60D /* Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kind.swift; sourceTree = "<group>"; };
+		8418AA2C20EDBF8000E5C60D /* KindTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindTableViewController.swift; sourceTree = "<group>"; };
+		8418AA2E20EDC1DA00E5C60D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84806A6D20EFBFDC00A3A32F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		84806A7020EFD8CE00A3A32F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		84806A7220EFDA2900A3A32F /* MapViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewExtension.swift; sourceTree = "<group>"; };
+		849743B720F21234006C0011 /* FoodTrakerVer2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FoodTrakerVer2.entitlements; sourceTree = "<group>"; };
+		849743B820F26B56006C0011 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		84B55EDB20F0803100A94031 /* AutocompleteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteController.swift; sourceTree = "<group>"; };
+		84B55EDD20F09FCD00A94031 /* LocationGG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationGG.swift; sourceTree = "<group>"; };
+		84B55EDF20F0A01400A94031 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		84FF861B20EEFDB2001F29D2 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		84FF861D20EF03D7001F29D2 /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
+		84FF861F20EF10D6001F29D2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		84FF862120EF3D1E001F29D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84FF862420EF40BF001F29D2 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		84FF862620EF5311001F29D2 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		84FF862820EF533C001F29D2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8C9D434F1470EB3906041B77 /* Pods_FoodTrakerVer2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodTrakerVer2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C338A3342E77C96B61429776 /* Pods-FoodTrakerVer2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodTrakerVer2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoodTrakerVer2/Pods-FoodTrakerVer2.debug.xcconfig"; sourceTree = "<group>"; };
+		F8951199166C6FCD7A540DDB /* Pods-FoodTrakerVer2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodTrakerVer2.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodTrakerVer2/Pods-FoodTrakerVer2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DBE9E48619D1793B211BDEC /* Pods_FoodTrakerVer2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +90,8 @@
 			children = (
 				8418AA0720EDB8DC00E5C60D /* FoodTrakerVer2 */,
 				8418AA0620EDB8DC00E5C60D /* Products */,
+				F5EC90D907E26C39F03379C2 /* Pods */,
+				ECC9FF07F5CB639A78341806 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +106,118 @@
 		8418AA0720EDB8DC00E5C60D /* FoodTrakerVer2 */ = {
 			isa = PBXGroup;
 			children = (
+				849743B720F21234006C0011 /* FoodTrakerVer2.entitlements */,
 				8418AA0820EDB8DC00E5C60D /* AppDelegate.swift */,
-				8418AA0A20EDB8DC00E5C60D /* ViewController.swift */,
+				84FF861B20EEFDB2001F29D2 /* DataService.swift */,
+				84FF862320EF40AB001F29D2 /* Extension */,
+				8418AA1F20EDBBDD00E5C60D /* Model */,
+				8418AA1A20EDBB3100E5C60D /* View */,
+				8418AA2B20EDBF5900E5C60D /* Controller */,
 				8418AA0C20EDB8DC00E5C60D /* Main.storyboard */,
-				8418AA0F20EDB8DD00E5C60D /* Assets.xcassets */,
+				84FF862120EF3D1E001F29D2 /* Assets.xcassets */,
 				8418AA1120EDB8DD00E5C60D /* LaunchScreen.storyboard */,
 				8418AA1420EDB8DD00E5C60D /* Info.plist */,
+				8418AA2E20EDC1DA00E5C60D /* GoogleService-Info.plist */,
 			);
 			path = FoodTrakerVer2;
+			sourceTree = "<group>";
+		};
+		8418AA1A20EDBB3100E5C60D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8418AA1B20EDBB3100E5C60D /* MealTableViewCell.swift */,
+				8418AA1C20EDBB3100E5C60D /* RatingControl.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8418AA1F20EDBBDD00E5C60D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84B55EDD20F09FCD00A94031 /* LocationGG.swift */,
+				8418AA2820EDBE9C00E5C60D /* Kind.swift */,
+				8418AA2020EDBBEC00E5C60D /* Meal.swift */,
+				8418AA2A20EDBF0D00E5C60D /* DataStructures */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8418AA2A20EDBF0D00E5C60D /* DataStructures */ = {
+			isa = PBXGroup;
+			children = (
+				8418AA2220EDBC5D00E5C60D /* Location.swift */,
+				8418AA2620EDBE1000E5C60D /* Coordinate.swift */,
+				8418AA2420EDBC9000E5C60D /* Time.swift */,
+			);
+			path = DataStructures;
+			sourceTree = "<group>";
+		};
+		8418AA2B20EDBF5900E5C60D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84FF862620EF5311001F29D2 /* StartViewController.swift */,
+				84FF862820EF533C001F29D2 /* LoginViewController.swift */,
+				84806A6D20EFBFDC00A3A32F /* TabBarViewController.swift */,
+				8440A9F720F11EB900AFCDDB /* Home */,
+				8440A9F820F11EE600AFCDDB /* Profile */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8440A9F720F11EB900AFCDDB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8418AA2C20EDBF8000E5C60D /* KindTableViewController.swift */,
+				84FF861D20EF03D7001F29D2 /* MealTableViewController.swift */,
+				84FF861F20EF10D6001F29D2 /* DetailViewController.swift */,
+				84806A6F20EFD8AB00A3A32F /* GoogleMapController */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		8440A9F820F11EE600AFCDDB /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				8418AA0A20EDB8DC00E5C60D /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		84806A6F20EFD8AB00A3A32F /* GoogleMapController */ = {
+			isa = PBXGroup;
+			children = (
+				84806A7020EFD8CE00A3A32F /* MapViewController.swift */,
+				84B55EDB20F0803100A94031 /* AutocompleteController.swift */,
+			);
+			path = GoogleMapController;
+			sourceTree = "<group>";
+		};
+		84FF862320EF40AB001F29D2 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				84FF862420EF40BF001F29D2 /* ViewExtension.swift */,
+				84806A7220EFDA2900A3A32F /* MapViewExtension.swift */,
+				84B55EDF20F0A01400A94031 /* UITextFieldExtension.swift */,
+				849743B820F26B56006C0011 /* UIImageViewExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		ECC9FF07F5CB639A78341806 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C9D434F1470EB3906041B77 /* Pods_FoodTrakerVer2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5EC90D907E26C39F03379C2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C338A3342E77C96B61429776 /* Pods-FoodTrakerVer2.debug.xcconfig */,
+				F8951199166C6FCD7A540DDB /* Pods-FoodTrakerVer2.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +227,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8418AA1720EDB8DD00E5C60D /* Build configuration list for PBXNativeTarget "FoodTrakerVer2" */;
 			buildPhases = (
+				6245B3323584873CB46EAC9D /* [CP] Check Pods Manifest.lock */,
 				8418AA0120EDB8DC00E5C60D /* Sources */,
 				8418AA0220EDB8DC00E5C60D /* Frameworks */,
 				8418AA0320EDB8DC00E5C60D /* Resources */,
+				3CE872330609E411FEF711C5 /* [CP] Embed Pods Frameworks */,
+				06E4D17B78D0799FBF47BF11 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +255,11 @@
 				TargetAttributes = {
 					8418AA0420EDB8DC00E5C60D = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -123,20 +287,113 @@
 			buildActionMask = 2147483647;
 			files = (
 				8418AA1320EDB8DD00E5C60D /* LaunchScreen.storyboard in Resources */,
-				8418AA1020EDB8DD00E5C60D /* Assets.xcassets in Resources */,
+				8418AA2F20EDC1DA00E5C60D /* GoogleService-Info.plist in Resources */,
+				84FF862220EF3D1E001F29D2 /* Assets.xcassets in Resources */,
 				8418AA0E20EDB8DC00E5C60D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		06E4D17B78D0799FBF47BF11 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FoodTrakerVer2/Pods-FoodTrakerVer2-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FoodTrakerVer2/Pods-FoodTrakerVer2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3CE872330609E411FEF711C5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FoodTrakerVer2/Pods-FoodTrakerVer2-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FoodTrakerVer2/Pods-FoodTrakerVer2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6245B3323584873CB46EAC9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FoodTrakerVer2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8418AA0120EDB8DC00E5C60D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8418AA0B20EDB8DC00E5C60D /* ViewController.swift in Sources */,
+				8418AA2120EDBBEC00E5C60D /* Meal.swift in Sources */,
+				8418AA1E20EDBB3100E5C60D /* RatingControl.swift in Sources */,
+				8418AA2920EDBE9C00E5C60D /* Kind.swift in Sources */,
+				8418AA2520EDBC9000E5C60D /* Time.swift in Sources */,
+				8418AA2720EDBE1000E5C60D /* Coordinate.swift in Sources */,
+				84B55EE020F0A01400A94031 /* UITextFieldExtension.swift in Sources */,
+				84B55EDC20F0803100A94031 /* AutocompleteController.swift in Sources */,
+				84FF862720EF5311001F29D2 /* StartViewController.swift in Sources */,
+				84FF861C20EEFDB2001F29D2 /* DataService.swift in Sources */,
+				8418AA2D20EDBF8000E5C60D /* KindTableViewController.swift in Sources */,
+				8418AA0B20EDB8DC00E5C60D /* ProfileViewController.swift in Sources */,
+				84806A6E20EFBFDC00A3A32F /* TabBarViewController.swift in Sources */,
 				8418AA0920EDB8DC00E5C60D /* AppDelegate.swift in Sources */,
+				84FF862020EF10D6001F29D2 /* DetailViewController.swift in Sources */,
+				84B55EDE20F09FCD00A94031 /* LocationGG.swift in Sources */,
+				84FF862520EF40BF001F29D2 /* ViewExtension.swift in Sources */,
+				84806A7320EFDA2900A3A32F /* MapViewExtension.swift in Sources */,
+				849743B920F26B56006C0011 /* UIImageViewExtension.swift in Sources */,
+				84806A7120EFD8CE00A3A32F /* MapViewController.swift in Sources */,
+				84FF862920EF533C001F29D2 /* LoginViewController.swift in Sources */,
+				8418AA2320EDBC5D00E5C60D /* Location.swift in Sources */,
+				84FF861E20EF03D7001F29D2 /* MealTableViewController.swift in Sources */,
+				8418AA1D20EDBB3100E5C60D /* MealTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,10 +535,14 @@
 		};
 		8418AA1820EDB8DD00E5C60D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C338A3342E77C96B61429776 /* Pods-FoodTrakerVer2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FoodTrakerVer2/FoodTrakerVer2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 45VTZRG97N;
 				INFOPLIST_FILE = FoodTrakerVer2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,10 +556,14 @@
 		};
 		8418AA1920EDB8DD00E5C60D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8951199166C6FCD7A540DDB /* Pods-FoodTrakerVer2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FoodTrakerVer2/FoodTrakerVer2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 45VTZRG97N;
 				INFOPLIST_FILE = FoodTrakerVer2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
