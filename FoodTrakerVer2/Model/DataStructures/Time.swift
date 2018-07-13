@@ -9,18 +9,25 @@
 import UIKit
 
 class Time {
-    var start: String
-    var end: String
+    var start: String = "0:00"
+    var end: String = "0:00"
     
     init(start: String, end: String) {
         self.start = start
         self.end = end
     }
     
-    init?(dict: DICT) {
-        guard let start = dict["start"] as? String else { return nil }
-        guard let end = dict["end"] as? String else { return nil }
+    init?(value: DICT) {
+        let start = value["Start"] as? String ?? "0:00"
+        let end = value["End"] as? String ?? "0:00"
         self.start = start
         self.end = end
+    }
+    
+    init?(dict: DICT) {
+        let start = dict["start"] as? String ?? "0:00"
+        let end = dict["end"] as? String ?? "0:00"
+        self.start = start
+        self.end = end 
     }
 }

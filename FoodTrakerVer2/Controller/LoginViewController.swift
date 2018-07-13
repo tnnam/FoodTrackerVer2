@@ -22,8 +22,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if let email = UserDefaults.standard.value(forKey: "email") as? String {
-            if email != "" {
+        if let id = UserDefaults.standard.value(forKey: "id") as? String {
+            if id != "" {
                 loading.startAnimating()
                 self.presentLoginedInScreen()
                 loading.stopAnimating()
@@ -61,12 +61,18 @@ class LoginViewController: UIViewController {
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                 if error == nil {
                     if let info = result as? DICT {
-                        if let email = info["email"] as? String,
+                        
+                        if let email = info["email"] as? String {
+                             UserDefaults.standard.set(email, forKey: "email")
+                        }
+
+                        
+                        if let id = info["id"] as? String,
                             let name = info["name"] as? String,
                             let picture = info["picture"] as? DICT,
                             let data = picture["data"] as? DICT,
                             let url = data["url"] as? String {
-                            UserDefaults.standard.set(email, forKey: "email")
+                            UserDefaults.standard.set(id, forKey: "id")
                             UserDefaults.standard.set(name, forKey: "name")
                             UserDefaults.standard.set(url, forKey: "url")
                             UserDefaults.standard.set(false, forKey: "FirstLogin")

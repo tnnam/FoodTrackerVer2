@@ -23,18 +23,16 @@ class MapViewController: UIViewController {
         }
         return locationManager
     }()
-
+ 
     @IBOutlet weak var mapView: GMSMapView!
-    
+    var meal: Meal?
     // Slide menu constraint
     @IBOutlet weak var sideMenuConstraint: NSLayoutConstraint!
     var isSlideMenuHidden = true
-    
     // MARK: Outlet
     @IBOutlet weak var startTextField: UITextField!
     @IBOutlet weak var endTextField: UITextField!
     
-    var checkIdentifier: Bool = true
     var source: LocationGG?
     var destination: LocationGG?
     
@@ -45,70 +43,22 @@ class MapViewController: UIViewController {
     var placesClient: GMSPlacesClient!
     var zoomLevel: Float = 15.0
     
-    var likelyPlaces: [GMSPlace] = []
-    var selectedPlace: GMSPlace?
-    
-    let defaultLocation = CLLocation(latitude: -33.869405, longitude: 151.199)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         locationManager.delegate = self
-        
         placesClient = GMSPlacesClient.shared()
-        
         mapView.settings.myLocationButton = true
         mapView.settings.compassButton = true
         mapView.isMyLocationEnabled = true
-        
-        sideMenuConstraint.constant = -200
-        
-        listLikelyPlaces()
-
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if selectedPlace != nil {
-            print(selectedPlace!.name)
-        }
-        listLikelyPlaces()
-    }
-    
-    func listLikelyPlaces() {
-        likelyPlaces.removeAll()
-        
-        placesClient.currentPlace { (placeLikelihoods, error) -> Void in
-            if let error = error {
-                print("Current Place error: \(error.localizedDescription)")
-                return
-            }
-            // xử lý khi có dữ liệu
-            if let likelihoodList = placeLikelihoods {
-                for likelihood in likelihoodList.likelihoods {
-                    let place = likelihood.place
-                    self.likelyPlaces.append(place)
-                }
-            }
-        }
-    }
-    
-    // MARK: Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let detailController = segue.destination as? AutocompleteController
-        detailController?.delegate = self
-        if segue.identifier == "end" {
-            checkIdentifier = false
-        }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setLocation()
     }
     
     // MARK: Search places
     @IBAction func searchPlaces(_ sender: UIBarButtonItem) {
-        source = nil
-        destination = nil
-        startTextField.displayText(text: "Bạn đang ở đâu?")
-        endTextField.displayText(text: "Bạn muốn đi đâu?")
-        checkIdentifier = true
         if isSlideMenuHidden {
             sideMenuConstraint.constant = 0
             UIView.animate(withDuration: 0.3) {
@@ -120,36 +70,54 @@ class MapViewController: UIViewController {
                 self.view.layoutIfNeeded()
             }
         }
-        
         isSlideMenuHidden = !isSlideMenuHidden
     }
     
-    @IBAction func setMyLocation(_ sender: UIButton) {
+    func setLocation() {
         print("NamTN: \(String(describing: mapView.myLocation?.coordinate))")
         startTextField.displayText(text: "Vị trí của tôi")
         source = LocationGG(name: "Vị trí của tôi", formattedAddress: "", coordinate: (mapView.myLocation?.coordinate)!)
+        let coordinate =  CLLocationCoordinate2D(latitude: Double(meal?.location.coordinate.latitude ?? "") ?? 0, longitude: Double(meal?.location.coordinate.longitude ?? "") ?? 0)
+        destination = LocationGG(name: meal?.location.name ?? "", formattedAddress: meal?.location.formattedAddress ?? "", coordinate: coordinate)
+        startTextField.displayLocation(location: source!)
+        endTextField.displayLocation(location: destination!)
         displayPolyLine()
     }
     
-    @IBAction func swapLocation(_ sender: UIButton) {
-        let temp: LocationGG?
-        temp = source
-        source = destination
-        destination = temp
-        //
-        if source != nil {
-            startTextField.displayLocation(location: source!)
-        } else {
-            startTextField.displayText(text: "Bạn đang ở đâu?")
-        }
-        //
-        if destination != nil {
-            endTextField.displayLocation(location: destination!)
-        } else {
-            endTextField.displayText(text: "Bạn muốn đi đâu?")
-        }
-        //
-        displayPolyLine()
-    }
-
 }
+
+extension MapViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location: CLLocation = locations.last!
+        print("Location :\(location)")
+        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: zoomLevel)
+        marker = nil
+        if mapView.isHidden {
+            mapView.isHidden = false
+            mapView.camera = camera
+        } else {
+            mapView.animate(to: camera)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted:
+            print("Location access was restricted.")
+        case .denied:
+            print("User denied access to location.")
+            mapView.isHidden = false
+        case .notDetermined:
+            print("Location status not determined.")
+        case .authorizedAlways: fallthrough
+        case .authorizedWhenInUse:
+            print("Location status is OK.")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationManager.stopUpdatingLocation()
+        print("Error: \(error)")
+    }
+}
+

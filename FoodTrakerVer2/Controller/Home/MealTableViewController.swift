@@ -12,15 +12,17 @@ import FirebaseDatabase
 class MealTableViewController: UITableViewController {
 
     var kind: String?
-    
     var meals: [Meal] = []
-    
     var ref: DatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = kind
         configure()
+        DataService.shared.getData(key: kind!) { (meals) in
+            print(meals.count)
+        }
+        uploadDataToFirebase()
     }
     
     func configure() {
@@ -28,6 +30,17 @@ class MealTableViewController: UITableViewController {
         ref = Database.database().reference(withPath: kind.lowercased())
         loadData()
     }
+    
+    func uploadDataToFirebase() {
+        DataService.shared.getData(key: kind!) { (mealsPlist) in
+            print("NamTN: \(mealsPlist[0].location.name)")
+            for meal in mealsPlist {
+                let mealItemRef = self.ref.child(meal.id.lowercased())
+                mealItemRef.setValue(meal.toAnyObject())
+            }
+        }
+    }
+
 
     func loadData() {
         ref.queryOrdered(byChild: "id").observe(.value) { (snapshot) in
@@ -59,7 +72,9 @@ class MealTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        print(meals.count)
         return meals.count
+        
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,16 +86,35 @@ class MealTableViewController: UITableViewController {
 
     func configureCell(meal: Meal, cell: MealTableViewCell) {
         cell.nameLabel.text = meal.name
-        cell.photoImageView.image = #imageLiteral(resourceName: "sashimi")
+        cell.photoImageView.download(from: meal.photo)
+        print("\(meal.id) \(meal.name) \(meal.photo) \(meal.rating)")
         cell.ratingControl.rating = meal.rating
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let mealItem = meals[indexPath.row]
+            mealItem.ref?.removeValue()
+            self.loadData()
+        }
     }
 
     // MARK: - Navigation
-
+    @IBAction func unwind(for unwindSegue: UIStoryboardSegue) {
+    
+    }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let detailViewController = segue.destination as? DetailViewController else { return }
-        guard let index = tableView.indexPathForSelectedRow else { return }
-        detailViewController.meal = meals[index.row]
+        if segue.identifier == "edit" {
+            guard let index = tableView.indexPathForSelectedRow else { return }
+            detailViewController.meal = meals[index.row]
+        }
+        detailViewController.kind = kind
     }
 }

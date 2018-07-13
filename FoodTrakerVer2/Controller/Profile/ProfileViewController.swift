@@ -31,6 +31,7 @@ class ProfileViewController: UIViewController {
     }
 
     @IBAction func logout(_ sender: UIButton) {
+        UserDefaults.standard.removeObject(forKey: "id")
         UserDefaults.standard.removeObject(forKey: "email")
         UserDefaults.standard.removeObject(forKey: "name")
         UserDefaults.standard.removeObject(forKey: "url")

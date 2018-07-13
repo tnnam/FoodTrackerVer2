@@ -21,6 +21,9 @@
 		8418AA2920EDBE9C00E5C60D /* Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418AA2820EDBE9C00E5C60D /* Kind.swift */; };
 		8418AA2D20EDBF8000E5C60D /* KindTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418AA2C20EDBF8000E5C60D /* KindTableViewController.swift */; };
 		8418AA2F20EDC1DA00E5C60D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8418AA2E20EDC1DA00E5C60D /* GoogleService-Info.plist */; };
+		8433A28520F6D83D00735C6B /* Meal.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8433A28420F6D83D00735C6B /* Meal.plist */; };
+		8433A28720F6E10B00735C6B /* Meals.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8433A28620F6E10B00735C6B /* Meals.plist */; };
+		8433A28B20F70DFB00735C6B /* Demo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8433A28A20F70DFB00735C6B /* Demo.plist */; };
 		84806A6E20EFBFDC00A3A32F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84806A6D20EFBFDC00A3A32F /* TabBarViewController.swift */; };
 		84806A7120EFD8CE00A3A32F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84806A7020EFD8CE00A3A32F /* MapViewController.swift */; };
 		84806A7320EFDA2900A3A32F /* MapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84806A7220EFDA2900A3A32F /* MapViewExtension.swift */; };
@@ -53,6 +56,9 @@
 		8418AA2820EDBE9C00E5C60D /* Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kind.swift; sourceTree = "<group>"; };
 		8418AA2C20EDBF8000E5C60D /* KindTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindTableViewController.swift; sourceTree = "<group>"; };
 		8418AA2E20EDC1DA00E5C60D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8433A28420F6D83D00735C6B /* Meal.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Meal.plist; sourceTree = "<group>"; };
+		8433A28620F6E10B00735C6B /* Meals.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Meals.plist; sourceTree = "<group>"; };
+		8433A28A20F70DFB00735C6B /* Demo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Demo.plist; sourceTree = "<group>"; };
 		84806A6D20EFBFDC00A3A32F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		84806A7020EFD8CE00A3A32F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		84806A7220EFDA2900A3A32F /* MapViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewExtension.swift; sourceTree = "<group>"; };
@@ -116,8 +122,11 @@
 				8418AA0C20EDB8DC00E5C60D /* Main.storyboard */,
 				84FF862120EF3D1E001F29D2 /* Assets.xcassets */,
 				8418AA1120EDB8DD00E5C60D /* LaunchScreen.storyboard */,
+				8433A28620F6E10B00735C6B /* Meals.plist */,
 				8418AA1420EDB8DD00E5C60D /* Info.plist */,
 				8418AA2E20EDC1DA00E5C60D /* GoogleService-Info.plist */,
+				8433A28A20F70DFB00735C6B /* Demo.plist */,
+				8433A28420F6D83D00735C6B /* Meal.plist */,
 			);
 			path = FoodTrakerVer2;
 			sourceTree = "<group>";
@@ -286,8 +295,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8433A28520F6D83D00735C6B /* Meal.plist in Resources */,
 				8418AA1320EDB8DD00E5C60D /* LaunchScreen.storyboard in Resources */,
 				8418AA2F20EDC1DA00E5C60D /* GoogleService-Info.plist in Resources */,
+				8433A28720F6E10B00735C6B /* Meals.plist in Resources */,
+				8433A28B20F70DFB00735C6B /* Demo.plist in Resources */,
 				84FF862220EF3D1E001F29D2 /* Assets.xcassets in Resources */,
 				8418AA0E20EDB8DC00E5C60D /* Main.storyboard in Resources */,
 			);

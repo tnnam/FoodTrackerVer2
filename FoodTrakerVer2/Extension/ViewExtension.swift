@@ -8,11 +8,6 @@
 
 import UIKit
 
-fileprivate class Keys {
-    static let TOP_BORDER = "top-border"
-    static let TOP_BORDER_VIEW = "top-border-view"
-}
-
 @IBDesignable class DesignButton: UIButton {}
 @IBDesignable class DesignImageView: UIImageView {}
 
@@ -50,18 +45,6 @@ extension UIView {
         }
     }
     
-    @IBInspectable var topBorder: Bool {
-        get {
-            if self.layer.value(forKey: Keys.TOP_BORDER) != nil {
-                return self.layer.value(forKey: Keys.TOP_BORDER) as! Bool
-            }
-            
-            return false
-        }
-        set {
-            self.layer.setValue(newValue, forKey: Keys.TOP_BORDER)
-        }
-    }
     @IBInspectable var shadowColor: UIColor? {
         get {
             return UIColor(cgColor: layer.shadowColor!)

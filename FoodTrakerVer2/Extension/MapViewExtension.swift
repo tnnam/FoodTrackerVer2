@@ -11,63 +11,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 
-extension MapViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location: CLLocation = locations.last!
-        print("Location :\(location)")
-        
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: zoomLevel)
-        
-        marker = nil
-        
-        if mapView.isHidden {
-            mapView.isHidden = false
-            mapView.camera = camera
-        } else {
-            mapView.animate(to: camera)
-        }
-        
-        listLikelyPlaces()
-        
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        case .restricted:
-            print("Location access was restricted.")
-        case .denied:
-            print("User denied access to location.")
-            mapView.isHidden = false
-        case .notDetermined:
-            print("Location status not determined.")
-        case .authorizedAlways: fallthrough
-        case .authorizedWhenInUse:
-            print("Location status is OK.")
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        locationManager.stopUpdatingLocation()
-        print("Error: \(error)")
-    }
-}
-
-extension MapViewController: AutocompleteControllerDelegate {
-    
-    func passingData(place: GMSPlace?) {
-        guard let dataPlace = place else { return }
-        if checkIdentifier == true {
-            source = LocationGG(name: dataPlace.name, formattedAddress: dataPlace.formattedAddress!, coordinate: dataPlace.coordinate)
-            print("NamTN: \(String(describing: dataPlace.coordinate))🤥")
-            startTextField.text = "\(dataPlace.name), \(dataPlace.formattedAddress ?? "")"
-        } else {
-            destination = LocationGG(name: dataPlace.name, formattedAddress: dataPlace.formattedAddress!, coordinate: dataPlace.coordinate)
-            print("NamTN: \(String(describing: dataPlace.coordinate))")
-            endTextField.text = "\(dataPlace.name), \(dataPlace.formattedAddress ?? "")"
-        }
-        displayPolyLine()
-    }
-    
+extension MapViewController {
     func displayPolyLine() {
         if source != nil && destination != nil {
             mapView.clear()

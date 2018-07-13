@@ -8,7 +8,8 @@
 
 import UIKit
 
-@IBDesignable class RatingControl: UIStackView {
+@IBDesignable
+class RatingControl: UIStackView {
     
     // MARK: Properties
     private var ratingButtons = [UIButton]()
@@ -70,20 +71,14 @@ import UIKit
         }
         ratingButtons.removeAll()
         
-        // load button image
-        let bundle = Bundle(for: type(of: self))
-        let emptyStar = UIImage(named: "emptyStar", in: bundle, compatibleWith: self.traitCollection)
-        let filledStar = UIImage(named: "filledStar", in: bundle, compatibleWith: self.traitCollection)
-        let highlightedStar = UIImage(named: "highlightedStar", in: bundle, compatibleWith: self.traitCollection)
-        
         for _ in 0..<starCount {
             let button = UIButton()
             
             // Set button image
-            button.setImage(emptyStar, for: .normal)
-            button.setImage(filledStar, for: .selected)
-            button.setImage(highlightedStar, for: .highlighted)
-            button.setImage(highlightedStar, for: [.highlighted, .selected])
+            button.setImage(#imageLiteral(resourceName: "emptyStar"), for: .normal)
+            button.setImage(#imageLiteral(resourceName: "filledStar"), for: .selected)
+            button.setImage(#imageLiteral(resourceName: "highlightedStar"), for: .highlighted)
+            button.setImage(#imageLiteral(resourceName: "highlightedStar"), for: [.highlighted, .selected])
             
             // Add Constraints
             button.translatesAutoresizingMaskIntoConstraints = false

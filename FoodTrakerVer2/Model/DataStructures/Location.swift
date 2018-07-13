@@ -9,8 +9,8 @@
 import UIKit
 
 class Location {
-    var name: String
-    var formattedAddress: String
+    var name: String = ""
+    var formattedAddress: String = ""
     var coordinate: Coordinate
     
     init(name: String, formattedAddress: String, coordinate: Coordinate) {
@@ -19,13 +19,23 @@ class Location {
         self.coordinate = coordinate
     }
     
-    init?(dict: DICT) {
-        guard let name = dict["name"] as? String else { return nil }
-        guard let formattedAddress = dict["formattedAddress"] as? String else { return nil }
-        guard let coordinate = dict["coordinate"] as? DICT else { return nil }
-        guard let coordinateData = Coordinate(dict: coordinate) else { return nil }
+    init?(value: DICT) {
+        let name = value["Name"] as? String ?? ""
+        let formattedAddress = value["FormattedAddress"] as? String ?? ""
+        let coordinate = value["Coordinate"] as? DICT ?? [:]
+        let coordinateData = Coordinate(value: coordinate)
         self.name = name
         self.formattedAddress = formattedAddress
-        self.coordinate = coordinateData
+        self.coordinate = coordinateData ?? Coordinate(latitude: "", longitude: "")
+    }
+    
+    init?(dict: DICT) {
+        let name = dict["name"] as? String ?? ""
+        let formattedAddress = dict["formattedAddress"] as? String ?? ""
+        let coordinate = dict["coordinate"] as? DICT ?? [:]
+        let coordinateData = Coordinate(dict: coordinate)
+        self.name = name
+        self.formattedAddress = formattedAddress
+        self.coordinate = coordinateData ?? Coordinate(latitude: "", longitude: "")
     }
 }

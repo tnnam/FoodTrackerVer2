@@ -13,12 +13,11 @@ protocol AutocompleteControllerDelegate: class {
     func passingData(place: GMSPlace?)
 }
 
-class AutocompleteController: UIViewController {
+class AutocompleteController: UIViewController, UISearchBarDelegate {
 
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
     var resultView: UITextField?
-    
     // pass data by delegate
     weak var delegate: AutocompleteControllerDelegate?
     
@@ -31,9 +30,11 @@ class AutocompleteController: UIViewController {
         searchController = UISearchController(searchResultsController: resultsViewController)
         searchController?.searchResultsUpdater = resultsViewController
         
-        searchController?.searchBar.frame = CGRect(x: 0, y: 0, width: 300, height: 44.0)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: (searchController?.searchBar)!)
+        let width = UIScreen.main.bounds.width
         
+        searchController?.searchBar.frame = CGRect(x: 0, y: 0, width: width, height: 44.0)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: (searchController?.searchBar)!)
+        searchController?.searchBar.delegate = self
         
         definesPresentationContext = true
         
@@ -41,6 +42,9 @@ class AutocompleteController: UIViewController {
         searchController?.modalPresentationStyle = .popover
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension AutocompleteController: GMSAutocompleteResultsViewControllerDelegate {
@@ -51,8 +55,7 @@ extension AutocompleteController: GMSAutocompleteResultsViewControllerDelegate {
         print("Place address: \(place.formattedAddress ?? "")")
         print("Place attributions: \(place.attributions?.string ?? "")")
         delegate?.passingData(place: place)
-        //        print(place.coordinate)
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,

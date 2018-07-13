@@ -15,25 +15,23 @@ class DataService {
     
     static let shared: DataService = DataService()
     
-    var kinds = ["Sashimi", "Sushi", "Chiên & Nướng", "Khai vị", "Mỳ", "Đồ uống"]
+    var kinds = ["Sashimi", "Sushi", "Chiên, nướng", "Khai Vị", "Mỳ", "Đồ uống"]
     
-//    var ref: DatabaseReference!
-//
-//    func loadData(with kind: String) -> [Meal] {
-//        var newItem: [Meal] = []
-//        ref = Database.database().reference(withPath: "sashimi")
-//        ref.queryOrdered(byChild: "id").observe(.value) { (snapshot) in
-//            for child in snapshot.children {
-//                if let snapshot = child as? DataSnapshot {
-//                    if let mealItem = Meal(snapshot: snapshot) {
-//                        newItem.append(mealItem)
-//                        print("NamTN: \(newItem[0].name)")
-//                    }
-//                }
-//            }
-//        }
-//        return newItem
-//    }
-
+    // MARK: Meal
+    
+    func getData(key: String, complete: ([Meal]) -> Void) {
+        var meals: [Meal] = []
+        guard let path = Bundle.main.path(forResource: "Meals", ofType: "plist") else { return }
+        guard let data = FileManager.default.contents(atPath: path) else { return }
+        guard let result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) else { return }
+        guard let dict = result as? DICT else { return }
+        guard let dataMeals = dict[key] as? [DICT] else { return }
+        for meal in dataMeals {
+            if let mealObj = Meal(value: meal) {
+                meals.append(mealObj)
+            }
+        }
+        complete(meals)
+    }
     
 }

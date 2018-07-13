@@ -10,16 +10,17 @@ import UIKit
 import FirebaseDatabase
 
 class Meal {
-    let ref: DatabaseReference?
-    var id: String
-    var name: String
-    var photo: String
-    var rating: Int
-    var price: Int
+    
+    var ref: DatabaseReference?
+    var id: String = ""
+    var name: String = ""
+    var photo: String = ""
+    var rating: Int = -1
+    var price: Int = -1
     var location: Location
     var time: Time
-    var shortDesc:  String
-    var review: String
+    var shortDesc:  String = ""
+    var review: String = ""
     
     init(id: String, name: String, photo: String, rating: Int, price: Int, location: Location, time: Time, shortDesc:  String, review: String) {
         ref = nil
@@ -34,19 +35,45 @@ class Meal {
         self.review = review
     }
     
+    init?(value: DICT) {
+        let id = value["ID"] as? String ?? ""
+        let name = value["Name"] as? String ?? ""
+        let photo = value["Photo"] as? String ?? ""
+        let rating = value["Rating"] as? Int ?? -1
+        let price = value["Price"] as? Int ?? -1
+        let location = value["Location"] as? DICT ?? [:]
+        let locationData = Location(value: location)
+        let time = value["Time"] as? DICT ?? [:]
+        let timeData = Time(value: time)
+        let shortDesc = value["ShortDesc"] as? String ?? ""
+        let review = value["Review"] as? String ?? ""
+        
+        ref = nil
+        self.id = id
+        self.name = name
+        self.photo = photo
+        self.rating = rating
+        self.price = price
+        self.location = locationData ?? Location(name: "", formattedAddress: "", coordinate: Coordinate(latitude: "", longitude: ""))
+        self.time = timeData ?? Time(start: "", end: "")
+        self.shortDesc = shortDesc
+        self.review = review
+    }
+
+    
     init?(snapshot: DataSnapshot) {
-        guard let value = snapshot.value as? DICT else { return nil }
-        guard let id = value["id"] as? String else { return nil }
-        guard let name = value["name"] as? String else { return nil }
-        guard let photo = value["picture"] as? String else { return nil }
-        guard let rating = value["rating"] as? Int else { return nil }
-        guard let price = value["price"] as? Int else { return nil }
-        guard let location = value["location"] as? DICT else { return nil }
-        guard let locationData = Location(dict: location) else { return nil }
-        guard let time = value["time"] as? DICT else { return nil }
-        guard let timeData = Time(dict: time) else { return nil }
-        guard let shortDesc = value["shortDesc"] as? String else { return nil }
-        guard let review = value["review"] as? String else { return nil }
+        let value = snapshot.value as? DICT ?? [:]
+        let id = value["id"] as? String ?? ""
+        let name = value["name"] as? String ?? ""
+        let photo = value["photo"] as? String ?? ""
+        let rating = value["rating"] as? Int ?? -1
+        let price = value["price"] as? Int ?? -1
+        let location = value["location"] as? DICT ?? [:]
+        let locationData = Location(dict: location)
+        let time = value["time"] as? DICT ?? [:]
+        let timeData = Time(dict: time)
+        let shortDesc = value["shortDesc"] as? String ?? ""
+        let review = value["review"] as? String ?? ""
         
         ref = snapshot.ref
         self.id = id
@@ -54,8 +81,8 @@ class Meal {
         self.photo = photo
         self.rating = rating
         self.price = price
-        self.location = locationData
-        self.time = timeData
+        self.location = locationData ?? Location(name: "", formattedAddress: "", coordinate: Coordinate(latitude: "", longitude: ""))
+        self.time = timeData ?? Time(start: "", end: "")
         self.shortDesc = shortDesc
         self.review = review
     }
@@ -67,7 +94,7 @@ class Meal {
             "photo": photo,
             "rating": rating,
             "price": price,
-            "leasing": [
+            "location": [
                 "coordinate": [
                     "latitude": location.coordinate.latitude,
                     "longitude": location.coordinate.longitude
