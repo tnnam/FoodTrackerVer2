@@ -15,6 +15,10 @@ class MealTableViewController: UITableViewController {
     var meals: [Meal] = []
     var ref: DatabaseReference!
 
+    var filterMeals : [Meal] = []
+
+    var searchController: UISearchController!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = kind
@@ -23,6 +27,16 @@ class MealTableViewController: UITableViewController {
             print(meals.count)
         }
         uploadDataToFirebase()
+        
+        // setup searchController
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "Search Meal"
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.dimsBackgroundDuringPresentation = false
+        tableView.tableHeaderView = searchController.searchBar
+        
+        navigationItem.hidesSearchBarWhenScrolling = true
     }
     
     func configure() {
@@ -72,14 +86,15 @@ class MealTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print(meals.count)
+        if searchController.isActive {
+            return filterMeals.count
+        }
         return meals.count
-        
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealTableViewCell
-        let meal: Meal = meals[indexPath.row]
+        let meal: Meal = !searchController.isActive ? meals[indexPath.row] : filterMeals[indexPath.row]
         configureCell(meal: meal, cell: cell)
         return cell
     }
@@ -116,5 +131,18 @@ class MealTableViewController: UITableViewController {
             detailViewController.meal = meals[index.row]
         }
         detailViewController.kind = kind
+    }
+}
+
+extension MealTableViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            let fetchedObjects = meals
+            filterMeals = fetchedObjects.filter({ (meal) -> Bool in
+                return meal.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+            })
+            tableView.reloadData()
+        }
     }
 }
